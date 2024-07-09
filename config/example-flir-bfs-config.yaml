@@ -3,9 +3,7 @@ type: "camera"
 sensor_class: "PySpinCamera"
 model: "FLIR-BFS-PGE-50S50C"
 sensor: "Sony IMX264 2/3"
-serial: "24131919"
-width: 2448
-height: 2048
+serial: "22395929"
 fps: 20
 jpg_compression_pct: 0
 interpolate: 2
@@ -13,18 +11,20 @@ io_threads: 2
 calibration:
   channel_order: "bgr"
   intrinsics:
-    fx: 1448
-    fy: 1448
-    u: 1224  # width / 2
-    v: 1024  # height / 2
-    g: 0
+    width: 2448
+    height: 2048
+    f: 0.0035  # focal length
+    sx: 0.0088  # sensor size in x dim
+    sy: 0.0066  # sensor size in y dim
+    g: 0  # gamma skew coefficient
   extrinsics:
     dx: 0
     dy: 0
     dz: 0
-    qx: 0
-    qy: 0
-    qz: 0
+    qw: -0.5
+    qx: 0.5
+    qy: -0.5
+    qz: 0.5
 backend:
   transport: "ipc"
   host: localhost

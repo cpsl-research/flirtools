@@ -3,7 +3,7 @@ import argparse
 
 def convert_from_octet(oct_str: str) -> int:
     octets = oct_str.split(".")
-    return sum([int(octet) * 256**(3-i) for i, octet in enumerate(octets)])
+    return sum([int(octet) * 256 ** (3 - i) for i, octet in enumerate(octets)])
 
 
 def main(args):
@@ -11,7 +11,9 @@ def main(args):
     for attr in attrs:
         if getattr(args, attr) is not None:
             oct_int = convert_from_octet(getattr(args, attr))
-            print(f"{attr:9s}: integer for octet {getattr(args, attr):15s} is {oct_int}")
+            print(
+                f"{attr:9s}: integer for octet {getattr(args, attr):15s} is {oct_int}"
+            )
         else:
             print(f"{attr:9s}: no input passed")
 
