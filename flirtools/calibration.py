@@ -7,13 +7,13 @@ from .utils import q_mult_vec, transform_orientation
 def calibration_from_config_file(config_file):
     with open(config_file) as stream:
         config = yaml.safe_load(stream)
-    return calibration_from_config(config)
+    return calibration_from_config(config["calibration"])
 
 
 def calibration_from_config(config):
-    intr = Intrinsics(**config["calibration"]["intrinsics"])
-    extr = Extrinsics(**config["calibration"]["extrinsics"])
-    return Calibration(config["calibration"]["channel_order"], intr, extr)
+    intr = Intrinsics(**config["intrinsics"])
+    extr = Extrinsics(**config["extrinsics"])
+    return Calibration(config["channel_order"], intr, extr)
 
 
 class Intrinsics:
